@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+<style>
+	#container {
+	min-width: 310px;
+	max-width: 800px;
+	height: 400px;
+	margin: 0 auto
+}
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+<script>
+$(function () { 
+
+    $.ajax({
+      url: 'database.php',
+      data: "",                
+      dataType: 'json',       // 
+      success: function(data){
+        var time = [];
+        var val = [];
+        for (var i = 30, len = data.length; i >0; i--)
+                {
+                    time.push(data[len-i][1]);
+                    val.push(parseInt(data[len-i][2]));//將每筆光敏值放入陣列val中
+                }
+        ///////////highchart here/////////////////
+        Highcharts.chart('container', {
+
+    title: {
+        text: 'iot project: light value  '
+    },
+
+    subtitle: {
+        text: 'Source: light value from database'
+    },
+    xAxis: {
+            title: {
+            text: 'Time'
+            },
+            categories: time,
+            
+        },
+    yAxis: {
+        title: {
+            text: 'light value'
+        }
+    },
+    legend: {
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'middle'
+    },
+
+    series: [{
+        name: 'light sensor',
+        data: val
+    }]
+
+});
+
+        ////////////highchart here///////////////        
+
+
+      }//success fun  
+    });//fun()
+
+	
+});	
+</script>
+
+</head>
+<body>
+<div id="container">where are you</div>	
+</body>
+</html>

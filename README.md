@@ -2,7 +2,7 @@
 ALL about what I have learned or learning of web.
 (PHP/JavaScript/bootstrap/html...)
 ==========================================================
-【SOME USEFUL STIES】/n
-@https://www.w3schools.com/ /n
-@https://getbootstrap.com/ /n
+【SOME USEFUL STIES】<br>
+@https://www.w3schools.com/ <br>
+@https://getbootstrap.com/ <br>
 @http://www.runoob.com/  菜鳥教程
